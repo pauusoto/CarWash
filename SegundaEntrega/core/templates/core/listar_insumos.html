@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+    
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+
+    <div class="col-sm-8">
+            <h3 class="page-title">Lista de insumos</h3>
+        <table class="table table-head-bg-primary mt-4" id="tablaInsumos">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aux in listaInsumos %}
+                    <tr>
+                        <td>{{ aux.nombre }}</td>
+                        <td>{{ aux.precio }}</td>
+                        <td>{{ aux.descripcion }}</td>
+                        <td>{{ aux.stock }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-2">
+
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var table = $('#tablaInsumos').DataTable({
+            dom: 'Bfrtip',
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "buttons": ['copy', 'excel', 'csv', 'pdf']
+        });
+        table.buttons().container()
+            .appendTo('#example_wrapper .col-md-6:eq(0)');
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+
+
+
+<div class="row">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+    <div class="col-md-12">
+       <!-- <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            <input type="submit" class="btn btn-info" value="Modificar">
+            <input type="reset" class="btn btn-danger" value="Limpiar">
+        </form>-->
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h4 class="card-title">Modificar o eliminar insumos</h4> </div>
+            </div>
+            <div class="card-body">
+                    <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                            <div class="modal-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Nombre</label>
+                                                <input id="addName" type="text" class="form-control" placeholder="fill name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pr-0">
+                                            <div class="form-group form-group-default">
+                                                <label>Precio</label>
+                                                <input id="addPosition" type="text" class="form-control" placeholder="fill position">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Descripción</label>
+                                                <input id="addOffice" type="text" class="form-control" placeholder="fill office">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Stock</label>
+                                                <input id="addOffice" type="text" class="form-control" placeholder="fill office">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="add-row" class="display table table-striped table-hover" id="tablaInsumos">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Descripción</th>
+                                <th>Stock</th>
+                                <th style="width: 10%">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for aux in listaInsumos %}
+                            <tr>
+                                <td>{{ aux.id }}</td>
+                                <td>{{ aux.nombre }}</td>
+                                <td>{{ aux.precio }}</td>
+                                <td>{{ aux.descripcion }}</td>
+                                <td>{{ aux.stock }}</td>
+                                <td>                  
+                                    
+                                    <div class="form-button-action">
+                                        <a href="{% url 'modificar' aux.id %}" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Modificar">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a onclick="confirmDelete({{ aux.id }})"  type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Eliminar" id="alert_demo_8">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-sm-2"></div>
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="{% static 'core/assets/js/plugin/datatables/datatables.min.js' %}"></script>
+<script >
+    $(document).ready(function() {
+        $('#basic-datatables').DataTable({
+        });
+
+        $('#multi-filter-select').DataTable( {
+            "pageLength": 5,
+            initComplete: function () {
+                this.api().columns().every( function () {
+                    var column = this;
+                    var select = $('<select class="form-control"><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                            );
+
+                        column
+                        .search( val ? '^'+val+'$' : '', true, false )
+                        .draw();
+                    } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    } );
+                } );
+            }
+        });
+
+        // Add Row
+        $('#add-row').DataTable({
+            "pageLength": 5,
+        });
+
+        var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+        $('#addRowButton').click(function() {
+            $('#add-row').dataTable().fnAddData([
+                $("#addName").val(),
+                $("#addPosition").val(),
+                $("#addOffice").val(),
+                action
+                ]);
+            $('#addRowModal').modal('hide');
+
+        });
+    });
+</script>
+<script>
+    $(function () {
+        var table = $('#tablaInsumos').DataTable({
+            dom: 'Bfrtip',
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "buttons": ['copy', 'excel', 'csv', 'pdf']
+        });
+        table.buttons().container()
+            .appendTo('#example_wrapper .col-md-6:eq(0)');
+    });
+</script>
+
+
+<script src="{% static 'core/js/funcionalidades.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% endblock js %}

@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags%}
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <body class="login">
+            
+            <div class="wrapper wrapper-login">
+                <div class="container container-login animated fadeIn">
+                    <h3 class="text-center">Iniciar sesión</h3>
+                    <div class="login-form">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <table>
+                                {{ form|crispy }}
+                            </table>
+                            <div class="form-group form-action-d-flex mb-3">
+                                <input type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold" value="Entrar" >
+                                
+                                
+                            </div>
+                        </form>
+                    </div>
+                        {{ mensaje }}
+                </div>
+            </div>
+            
+        </body>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+{% endblock %}
+
+
+
+

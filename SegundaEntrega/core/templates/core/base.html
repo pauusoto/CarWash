@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+      {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="icon" href="{% static 'core/images/favicon.ico' %}">
+    <title>Lavado de autos</title>
+    <script src="{% static 'core/assets/js/plugin/webfont/webfont.min.js' %}"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls:['core/assets/css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+  </script>
+  <link rel="stylesheet" href="{% static 'core/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'core/assets/css/azzara.min.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/demo.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/fonts.css' %}">
+
+
+
+</head>
+  <body>
+  <div id="global">
+    <div id="cabecera">
+        <!--<header>
+          <nav class="menu-">
+            <div id="left">
+              <li><a href="{% url 'mapa' %}">Mapa</a></li>
+              <li><a href="{% url 'galeria' %}">Galería</a></li>
+              <li><a href="{% url 'vision' %}">Vision Mision</a></li>
+            </div>
+            <li><a href="{% url 'index' %}">Lavado de autos</a></li>
+            <div id="right">
+              <li><a href="{% static 'core/registro.html' %}">Registro</a></li>
+              <li><a href="{% static 'core/ingresoInsumos.html' %}">Ingresar</a></li>
+            </div>
+          </nav>
+        </header>
+      </div>-->
+      <div class="main-header" data-background-color="purple">
+        <!-- Logo Header -->
+        <div class="logo-header">
+          <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+              <i class="fa fa-bars"></i>
+            </span>
+          </button>
+          <button class="topbar-toggler more"><i class="fa fa-ellipsis-v"></i></button>
+          <div class="navbar-minimize">
+            <button class="btn btn-minimize btn-rounded">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        <!-- End Logo Header -->
+  
+        
+        <!-- End Navbar -->
+
+      <nav class="navbar navbar-header ">
+				
+				<div class="container-fluid">
+					<ul class="text-center">
+            <h2 class="font-weight-bold">Lavado de autos</h2>
+					</ul>
+						</li>
+
+
+				</div>
+			</nav>
+			<!-- End Navbar -->
+		</div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        
+        <div class="sidebar-background"></div>
+        <div class="sidebar-wrapper scrollbar-inner">
+          <div class="sidebar-content">
+            <div class="user">
+              <div class="info">
+              
+                    {% if user.is_authenticated %}
+
+                    <p style="color:black">Usuario: {{ user.username }} </p>
+                    <a href="{% url 'logout' %}">
+                      <span class="user-level"> Cerrar sesión</span>
+                    </a>
+                    
+                    {% endif %}
+                  
+                </a>
+                <div class="clearfix"></div>
+  
+              </div>
+            </div>
+            
+            <ul class="nav">
+              {% if user.is_authenticated %}
+              {% else %}
+                <li class="nav-item active">
+                  <a href="{% url 'login' %}">
+                    <i class="far fa-user-circle"></i>
+                    <p>Inicia sesión</p>
+                  </a>
+                </li>
+              
+                <li class="nav-item active">
+                  <a href="{% url 'registro' %}">
+                    <i class="far fa-smile-wink"></i>
+                    <p>Regístrate</p>
+                  </a>
+                </li>
+              {% endif %}
+              <li class="nav-item active">
+                <a href="{% url 'index' %}">
+                  <i class="fas fa-home"></i>
+                  <p>Lavado de autos</p>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a href="{% url 'mapa' %}">
+                  <i class="fas fa-map-marked-alt"></i>
+                  <p>Mapa</p>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a href="{% url 'galeria' %}">
+                  <i class="fas fa-camera-retro"></i>
+                  <p>Galeria</p>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a href="{% url 'vision' %}">
+                  <i class="fas fa-hand-holding-heart"></i>
+                  <p>Misión y visión</p>
+                </a>
+              </li>
+
+              <li class="nav-section">
+                <span class="sidebar-mini-icon">
+                  <i class="fa fa-ellipsis-h"></i>
+                </span>
+                <h4 class="text-section">Foro del personal</h4>
+              </li>
+              <li class="nav-item">
+                <a data-toggle="collapse" href="#custompages">
+                  <i class="fas fa-layer-group"></i>
+                  <p>Insumos</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="custompages">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'insumos'%}">
+                      <span class="sub-item">Ingreso de insumos</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'listar_insumos' %}">
+                        <span class="sub-item">Listar insumos</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'modificar_insumos' %}">
+                        <span class="sub-item">Modificar o Eliminar insumos</span>
+                      </a>
+                    </li>
+                  </ul>
+              </li> 
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="cuerpa">
+        <div class="main-panel">
+          <div class="content">
+            <div class="page-inner">
+        
+        {% block contenido %}
+        
+        {% endblock contenido%}
+      </div>
+			
+		</div>
+		
+	
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+  <div class="container-footer">
+    <footer>
+      <div class="bo-wrap clr4">
+        <div class="bo-footer">
+          <div class="bo-footer-social"></div>
+        </div>
+      </div>
+      <div class="bo-wrap clr3">
+        <div class="bo-footer">
+          <div class="bo-footer-smap">
+              <a href="galeria.html">Galeria</a> | <a href="index.html">Página principal</a> | <a href="registro.html">Regístrate</a> | <a href="vision.html">Visión y misión</a> | <a href="mapa.html">Mapa</a> | <a href="ingresoInsumos.html">Ingreso</a>
+          </div>
+          <div class="bo-footer-power">
+            Creado por Equipo cuatro.
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="bo-wrap clr4">
+        <div class="bo-footer">
+          <div class="bo-footer-copyright">&copy;2020 Equipo cuatro DWY-005D  All rights reserved.</div>
+        </div>
+    </footer>
+<!-- Footer -->
+  </div>
+
+
+    <script src="{% static 'core/assets/js/core/jquery.3.2.1.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/core/popper.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/moment/moment.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/chart.js/chart.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/chart-circle/circles.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/datatables/datatables.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/jqvmap/jquery.vmap.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/gmaps/gmaps.js' %}"></script>
+    <script src="{% static 'core/assets/js/plugin/sweetalert/sweetalert.min.js' %}"></script>
+    <script src="{% static 'core/assets/js/ready.min.js' %}"></script>
+
+
+
+    {% block js %}
+        
+    {% endblock js %}
+  </body>
+</html>

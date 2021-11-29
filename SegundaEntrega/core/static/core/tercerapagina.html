@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div>
+        <section class="contacto" id="contacto">
+            <h3 class="contacto-titulo">¡Acércate!</h3>
+            <ul class="contacto-contenido">
+                <li class="contacto-izq">
+                    <h3>Regístrate</h3>
+                <div id="formulario">
+
+                
+                <form action="" method="POST">
+
+                    <label for="txtRut">Rut: </label>
+                    <input type="text" name="txtRut" id="txtRut" required pattern="\d{3,8}-[\d|kK]{1}" title="Debe ser un Rut válido" >
+
+                    <label for="txtNombre">Nombre: </label>
+                    <input type="text" name="txtNombre" id="txtNombre" minlength="3" maxlength="80" required >
+        
+                    <label for="txtApellido">Apellido: </label>
+                    <input type="text" name="txtApellido" id="txtApellido" minlength="3" maxlength="80" required>
+                    
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required>
+
+                    <label for="txtFecha">Fecha de nacimiento: </label>
+                    <input type="date" name="txtFecha" id="txtFecha" max="2020-09-22">
+        
+                    <label for="txtUsuario">Nombre usuario: </label>
+                    <input type="text" name="txtUsuario" id="txtUsuario" minlength="8" maxlength="12" required>
+
+                    <label for="txtPass">Contraseña:</label>
+                    <input type="password" name="txtPass" id="txtPass" required>
+
+                    <input type="submit" name="btnRegistrar" id="btnRegistrar" minlength="8" class="btn-verde">
+                    <input type="reset" name="btnLimpiar" id="btnLimpiar" class="btn-rojo">
+                </form>
+            </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

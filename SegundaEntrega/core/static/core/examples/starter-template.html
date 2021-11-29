@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Azzara Bootstrap 4 Admin Dashboard</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon"/>
+
+	<!-- Fonts and icons -->
+	<script src="../assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['../assets/css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/azzara.min.css">
+	<link rel="stylesheet" href="../css/styles.css">
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link rel="stylesheet" href="../assets/css/demo.css">
+</head>
+<body>
+	<div class="wrapper">
+		<!--
+				Tip 1: You can change the background color of the main header using: data-background-color="blue | purple | light-blue | green | orange | red"
+		-->
+		<div class="main-header" data-background-color="blue">
+			<!-- Logo Header -->
+			<div class="logo-header">
+				
+				
+				
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<i class="fa fa-bars"></i>
+					</span>
+				</button>
+				<button class="topbar-toggler more"><i class="fa fa-ellipsis-v"></i></button>
+				<div class="navbar-minimize">
+					<button class="btn btn-minimize btn-rounded">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+			</div>
+			<!-- End Logo Header -->
+
+			
+			<!-- End Navbar -->
+		</div>
+
+		<!-- Sidebar -->
+		<div class="sidebar">
+			
+			<div class="sidebar-background"></div>
+			<div class="sidebar-wrapper scrollbar-inner">
+				<div class="sidebar-content">
+					<div class="user">
+						<div class="avatar-sm float-left mr-2">
+							<img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+						</div>
+						<div class="info">
+							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									Hizrian
+									<span class="user-level">Administrator</span>
+									<span class="caret"></span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
+
+						</div>
+					</div>
+					<ul class="nav">
+						<li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+							<h4 class="text-section">Components</h4>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#base">
+								<i class="fas fa-layer-group"></i>
+								<p>Base</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="base">
+							</div>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#forms">
+								<i class="fas fa-pen-square"></i>
+								<p>Forms</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="forms">
+								<ul class="nav nav-collapse">
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#tables">
+								<i class="fas fa-table"></i>
+								<p>Tables</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="tables">
+								<ul class="nav nav-collapse">
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End Sidebar -->
+
+		<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<section class="slider">
+						<div class="container-all">
+						<input type="radio" id="1" name="image-slide" hidden />
+						<input type="radio" id="2" name="image-slide" hidden />
+						<input type="radio" id="3" name="image-slide" hidden />
+
+						<div class="slide">
+							<div class="item-slide">
+							<img src="../images/img1.jpg " />
+							</div>
+							<div class="item-slide">
+							<img src="../images/img2.jpg" />
+							</div>
+					
+							<div class="item-slide">
+							<img src="../images/img3.jpg" />
+							</div>
+						</div>
+						<div class="pagination">
+							<label class="pagination-item" for="1">
+							<img src="../images/img1.jpg" />
+							</label>
+				
+							<label class="pagination-item" for="2">
+							<img src="../images/img2.jpg" />
+							</label>
+
+							<label class="pagination-item" for="3">
+							<img src="../images/img3.jpg" />
+							</label>
+						</div>
+						</div>
+					</section>
+					<section class="servicios">
+						<h1>Nuestros Servicios</h1>
+						<div class="todes">
+						<div class="servicio">
+						<i class="fas fas fa-car-alt"></i>
+						<h3>Lavado Exterior</h3>
+						<p> - Lavado de carrocería manual.
+							- Limpieza de vidrios y espejos exterior.
+							- Limpieza de plásticos exteriores.
+							- Renovador de gomas en neumáticos.</p>
+						</div>
+						
+						<div class="servicio">
+						<i class="fab fas fa-people-carry"></i>
+						<h3>Limpieza Interior</h3>
+						<p> -Aspirado Interior.
+							- Aspirado de maleta.
+							- Limpieza de tablero y plásticos con producto para limpieza de interiores.*
+						    - Limpieza interior de vidrios y espejos.
+							  *No usamos silicona.</p>
+						</div>
+						
+						<div class="servicio">
+						<i class="fab fas fa-calendar-check"></i>
+						<h3>Pulido de Llantas</h3>
+						<p>- Elimina suciedad de las llantas, dejándolas como nuevas.
+						- Limpieza con producto desengrasante de alto poder.</p>
+						</div>
+						</section>
+						<section class="clientes">
+							<h1>Clientes felices</h1>
+							<div class="container">
+							<img src="http://imgfz.com/i/VfHOdrz.png"" alt="Avatar" style="width:90px">
+							<p><span>Mati Foxytrusty.</span> Ing. Informático</p>
+							<p>Le recomiendo a todos mis cercanos sus servicios, son lo mejor del mercado. Limpian mi auto de manera impecable, además el servicio está al alcance de todos.</p>
+							</div>
+							<div class="container">
+							<img src="http://imgfz.com/i/Q96Ddak.png" alt="Avatar" style="width:90px">
+							<p><span >Ana Rocha Cardoso.</span> Periodista Company BB.</p>
+							<p>Estoy ocupada la mayor parte de mi tiempo y este servicio simplifica mi vida y mis tiempos. Muchas gracias...</p>
+							</div>
+							<div class="container">
+							<img src="https://i.ibb.co/j4skfR2/img-uno.png" alt="Avatar" style="width:90px">
+							<p><span >Rebecca Flex.</span> CEO en McDonald's - Chile.</p>
+							<p>Al ser una persona de edad, me dificultan las tareas como el lavado de autos, así que el mejor servicio de lavado de autos que podria haber probado es ¡aquí!.</p>
+							</div>
+						</section>
+			</div>
+			
+		</div>
+		
+	</div>
+	<!--   Core JS Files   -->
+	<script src="../assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="../assets/js/core/popper.min.js"></script>
+	<script src="../assets/js/core/bootstrap.min.js"></script>
+
+	<!-- jQuery UI -->
+	<script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+	<!-- jQuery Scrollbar -->
+	<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+	<!-- Moment JS -->
+	<script src="../assets/js/plugin/moment/moment.min.js"></script>
+
+	<!-- Chart JS -->
+	<script src="../assets/js/plugin/chart.js/chart.min.js"></script>
+
+	<!-- jQuery Sparkline -->
+	<script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+	<!-- Chart Circle -->
+	<script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
+
+	<!-- Datatables -->
+	<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+
+	<!-- Bootstrap Notify -->
+	<script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+	<!-- Bootstrap Toggle -->
+	<script src="../assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+
+	<!-- jQuery Vector Maps -->
+	<script src="../assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+	<script src="../assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+	<!-- Google Maps Plugin -->
+	<script src="../assets/js/plugin/gmaps/gmaps.js"></script>
+
+	<!-- Sweet Alert -->
+	<script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+	<!-- Azzara JS -->
+	<script src="../assets/js/ready.min.js"></script>
+</body>
+</html>
